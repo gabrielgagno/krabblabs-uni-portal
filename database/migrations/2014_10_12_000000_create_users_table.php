@@ -30,6 +30,9 @@ class CreateUsersTable extends Migration
             $table->date('dateLeft');
             $table->boolean('isManager')->default(0);
             $table->boolean('isActive')->default(1);
+            $table->integer('department');
+            $table->integer('position');
+            $table->integer('paygrade');
             $table->timestamps();
         });
     }
