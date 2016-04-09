@@ -17,6 +17,7 @@ class CreatePaygradesTable extends Migration
             $table->string('paygradeNumber');
             $table->decimal('min', 10, 2);
             $table->decimal('max', 10, 2);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

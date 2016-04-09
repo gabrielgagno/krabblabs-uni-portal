@@ -17,7 +17,7 @@ class CreateDepartmentsTable extends Migration
             $table->string('deptCode');
             $table->string('deptName');
             $table->integer('deptHead');
-            
+            $table->softDeletes();
             $table->timestamps();
         });
     }
