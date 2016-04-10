@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+    //return view('welcome');
+//});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::group(['middleware' => 'guest'], function() {
+        Route::get('/', 'HomeController@index');
+    });
+
+    Route::group(['middleware' => 'auth'], function() {
+        Route::get('/dashboard', 'HomeController@dashboard');
+    });
 });
