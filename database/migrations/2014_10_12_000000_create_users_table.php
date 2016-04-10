@@ -29,9 +29,6 @@ class CreateUsersTable extends Migration
             $table->date('dateStarted');
             $table->date('dateLeft')->nullable();
             $table->boolean('isManager')->default(0);
-            $table->integer('department');
-            $table->integer('position');
-            $table->integer('paygrade');
             $table->timestamps();
             $table->softDeletes();
         });
