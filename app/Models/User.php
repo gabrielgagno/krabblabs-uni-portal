@@ -52,6 +52,6 @@ class User extends Authenticatable
 
     public function paygrade()
     {
-
+        return $this->belongsTo('Paygrade', 'paygrade');
     }
 }
