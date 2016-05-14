@@ -19,9 +19,6 @@ class User extends Authenticatable
         'firstName',
         'middleName',
         'lastName',
-        'department',
-        'position',
-        'paygrade',
         'salary',
         'status',
         'dateStarted',
@@ -42,4 +39,19 @@ class User extends Authenticatable
     ];
 
     protected $dates = ['deleted_at'];
+
+    public function department()
+    {
+        return $this->belongsTo('Department', 'department');
+    }
+
+    public function position()
+    {
+        return $this->belongsTo('Position', 'position');
+    }
+
+    public function paygrade()
+    {
+
+    }
 }
