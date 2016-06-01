@@ -54,4 +54,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo('Paygrade', 'paygrade');
     }
+
+    public function requests()
+    {
+        return $this->belongsToMany('Request', 'user_requests', 'request');
+    }
+
+    public function approvalList()
+    {
+        return $this->hasMany('Request', 'approver');
+    }
 }
