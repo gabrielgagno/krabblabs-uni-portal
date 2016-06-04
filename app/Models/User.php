@@ -57,11 +57,21 @@ class User extends Authenticatable
 
     public function requests()
     {
-        return $this->belongsToMany('Request', 'user_requests', 'request');
+        return $this->belongsToMany('Request', 'user_requests', 'user', 'request');
     }
 
     public function requestApprovalQueue()
     {
         return $this->hasMany('Request', 'approver');
+    }
+
+    public function approver()
+    {
+        return $this->belongsToMany('User', 'approvers', 'user', 'approver');
+    }
+
+    public function approvalSubordinates()
+    {
+        return $this->belongsToMany('User', 'approvers', 'approver', 'user');
     }
 }
