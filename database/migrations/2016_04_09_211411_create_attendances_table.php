@@ -21,7 +21,6 @@ class CreateAttendancesTable extends Migration
             $table->decimal('actualHours', 2, 2);
             $table->boolean('isHoliday')->default(false);
             $table->integer('leaveStatus');
-            $table->integer('leaveType');
             $table->timestamps();
         });
     }

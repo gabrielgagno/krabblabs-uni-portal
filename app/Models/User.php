@@ -74,4 +74,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('User', 'approvers', 'approver', 'user');
     }
+
+    public function attendances()
+    {
+        return $this->hasMany('Attendance', 'user');
+    }
 }
