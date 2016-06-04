@@ -60,7 +60,7 @@ class User extends Authenticatable
         return $this->belongsToMany('Request', 'user_requests', 'request');
     }
 
-    public function approvalList()
+    public function requestApprovalQueue()
     {
         return $this->hasMany('Request', 'approver');
     }

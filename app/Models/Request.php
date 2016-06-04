@@ -26,7 +26,7 @@ class Request extends Model
         return $this->belongsToMany('User', 'user_requests', 'user');
     }
 
-    public function approver()
+    public function requestApprover()
     {
         return $this->belongsTo('User', 'approver');
     }
