@@ -84,4 +84,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('Benefit', 'user');
     }
+
+    public function leaveBalances()
+    {
+        return $this->hasMany('LeaveBalance', 'user');
+    }
 }
