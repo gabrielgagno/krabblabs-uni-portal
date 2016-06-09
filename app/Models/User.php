@@ -23,7 +23,7 @@ class User extends Authenticatable
         'status',
         'dateStarted',
         'dateLeft',
-        'isManager',
+        'isManagement',
         'email',
         'password',
         'sex'
