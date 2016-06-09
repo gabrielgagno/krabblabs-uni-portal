@@ -17,7 +17,6 @@ class CreatePositionsTable extends Migration
             $table->string('positionCode');
             $table->string('title');
             $table->integer('department');
-            $table->boolean('isManagement')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

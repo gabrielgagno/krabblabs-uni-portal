@@ -14,7 +14,6 @@ class Position extends Model
     protected $fillable = [
         'positionCode',
         'title',
-        'isManagement'
     ];
 
     protected $dates = ['deleted_at'];
