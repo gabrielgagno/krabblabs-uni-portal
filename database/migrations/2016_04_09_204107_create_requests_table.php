@@ -15,7 +15,6 @@ class CreateRequestsTable extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('requestType');
-            $table->integer('leaveType');
             $table->dateTime('startDate');
             $table->dateTime('endDate');
             $table->text('reason');
