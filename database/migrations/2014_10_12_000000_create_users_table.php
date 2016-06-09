@@ -28,7 +28,6 @@ class CreateUsersTable extends Migration
             $table->decimal('salary',10,2);
             $table->date('dateStarted');
             $table->date('dateLeft')->nullable();
-            $table->boolean('isManagement')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

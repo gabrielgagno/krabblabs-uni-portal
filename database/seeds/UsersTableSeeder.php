@@ -21,7 +21,6 @@ class UsersTableSeeder extends Seeder
             'position' => 1,
             'salary' => 50000.00,
             'dateStarted'   => date('Y-m-d h:i:s'),
-            'isManagement' => true,
             'email'      => 'gjpgagno@gmail.com',
             'password'   => bcrypt('secret')
         ));
