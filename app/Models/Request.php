@@ -23,11 +23,11 @@ class Request extends Model
 
     public function users()
     {
-        return $this->belongsToMany('User', 'user_requests', 'request', 'user');
+        return $this->belongsToMany('App\Models\User', 'user_requests');
     }
 
     public function requestApprover()
     {
-        return $this->belongsTo('User', 'approver');
+        return $this->belongsTo('App\Models\User', 'approver');
     }
 }

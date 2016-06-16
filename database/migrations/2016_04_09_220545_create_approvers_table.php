@@ -14,7 +14,7 @@ class CreateApproversTable extends Migration
     {
         Schema::create('approvers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user');
+            $table->integer('user_id');
             $table->integer('approver');
             $table->timestamps();
         });

@@ -22,9 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
-            $table->integer('department');
-            $table->integer('position');
-            $table->integer('paygrade');
+            $table->integer('department_id');
+            $table->integer('position_id');
+            $table->integer('paygrade_id');
             $table->decimal('salary',10,2);
             $table->date('dateStarted');
             $table->date('dateLeft')->nullable();
