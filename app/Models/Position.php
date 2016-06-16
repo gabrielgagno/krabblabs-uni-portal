@@ -20,11 +20,11 @@ class Position extends Model
 
     public function users()
     {
-        return $this->hasMany('User', 'position');
+        return $this->hasMany('App\Models\User');
     }
 
     public function department()
     {
-        return $this->belongsTo('Department', 'department');
+        return $this->belongsTo('App\Models\Department');
     }
 }
