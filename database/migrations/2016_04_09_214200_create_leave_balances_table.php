@@ -14,6 +14,7 @@ class CreateLeaveBalancesTable extends Migration
     {
         Schema::create('leave_balances', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->decimal('excessHours', 10, 2);
             $table->decimal('sickLeaves', 10, 2);
             $table->decimal('vacationLeaves', 10, 2);
