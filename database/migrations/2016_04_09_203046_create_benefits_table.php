@@ -14,7 +14,7 @@ class CreateBenefitsTable extends Migration
     {
         Schema::create('benefits', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user');
+            $table->integer('user_id');
             $table->string('benefitCode');
             $table->string('benefitName');
             $table->decimal('benefitAmount', 10, 2);
