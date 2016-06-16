@@ -21,6 +21,6 @@ class Paygrade extends Model
 
     public function users()
     {
-        return $this->hasMany('User', 'paygrade');
+        return $this->hasMany('App\Models\User');
     }
 }

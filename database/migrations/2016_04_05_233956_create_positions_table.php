@@ -16,7 +16,7 @@ class CreatePositionsTable extends Migration
             $table->increments('id');
             $table->string('positionCode');
             $table->string('title');
-            $table->integer('department');
+            $table->integer('department_id');
             $table->softDeletes();
             $table->timestamps();
         });
