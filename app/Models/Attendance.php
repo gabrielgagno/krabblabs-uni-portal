@@ -22,6 +22,6 @@ class Attendance extends Model
     protected $dates = ['deleted_at'];
 
     public function user() {
-        return $this->belongsTo('User', 'user');
+        return $this->belongsTo('App\Models\User');
     }
 }

@@ -20,16 +20,16 @@ class Department extends Model
 
     public function users()
     {
-        return $this->hasMany('User', 'department');
+        return $this->hasMany('App\Models\User');
     }
 
     public function deptHead()
     {
-        return $this->belongsTo('User', 'deptHead');
+        return $this->belongsTo('App\Models\User', 'deptHead');
     }
 
     public function positions()
     {
-        return $this->hasMany('Position', 'department');
+        return $this->hasMany('App\Models\Position');
     }
 }

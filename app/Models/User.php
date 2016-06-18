@@ -41,51 +41,51 @@ class User extends Authenticatable
 
     public function department()
     {
-        return $this->belongsTo('Department', 'department');
+        return $this->belongsTo('App\Models\Department');
     }
 
     public function position()
     {
-        return $this->belongsTo('Position', 'position');
+        return $this->belongsTo('App\Models\Position');
     }
 
     public function paygrade()
     {
-        return $this->belongsTo('Paygrade', 'paygrade');
+        return $this->belongsTo('App\Models\Paygrade');
     }
 
     public function requests()
     {
-        return $this->belongsToMany('Request', 'user_requests', 'user', 'request');
+        return $this->belongsToMany('App\Models\Request', 'user_requests');
     }
 
     public function requestApprovalQueue()
     {
-        return $this->hasMany('Request', 'approver');
+        return $this->hasMany('App\Models\Request', 'approver');
     }
 
     public function approver()
     {
-        return $this->belongsToMany('User', 'approvers', 'user', 'approver');
+        return $this->belongsToMany('App\Models\User', 'approvers');
     }
 
     public function approvalSubordinates()
     {
-        return $this->belongsToMany('User', 'approvers', 'approver', 'user');
+        return $this->belongsToMany('App\Models\User', 'approvers', 'approver');
     }
 
     public function attendances()
     {
-        return $this->hasMany('Attendance', 'user');
+        return $this->hasMany('App\Models\Attendance');
     }
 
     public function benefits()
     {
-        return $this->hasMany('Benefit', 'user');
+        return $this->hasMany('App\Models\Benefit');
     }
 
     public function leaveBalances()
     {
-        return $this->hasMany('LeaveBalance', 'user');
+        return $this->hasMany('App\Models\LeaveBalance');
     }
 }
