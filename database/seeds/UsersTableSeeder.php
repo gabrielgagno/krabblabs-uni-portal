@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
             'sex'       => 'M',
             'department_id' => 1,
             'position_id' => 1,
+            'paygrade_id' => 3,
             'salary' => 50000.00,
             'dateStarted'   => date('Y-m-d h:i:s'),
             'email'      => 'gjpgagno@gmail.com',

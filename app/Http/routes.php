@@ -16,7 +16,18 @@
 //});
 
 Route::group(['middleware' => 'web'], function () {
-    Route::auth();
+    // Route::auth();
+
+    // Authentication Routes
+    //Route::get('/login', 'Auth\AuthController@showLoginForm');
+    Route::get('/logout', 'Auth\AuthController@logout');
+    Route::get('/password/reset/{token?}', 'Auth\PasswordController@showResetForm');
+    //Route::get('/register', 'Auth\AuthController@showRegistrationForm');
+
+    Route::post('/login', 'Auth\AuthController@login');
+    Route::post('/password/email', 'Auth\PasswordController@sendResetLinkEmail');
+    Route::post('/password/reset', 'Auth\PasswordController@reset');
+    Route::post('/register', 'Auth\AuthController@register');
 
     Route::group(['middleware' => 'guest'], function() {
         Route::get('/', 'HomeController@index');
