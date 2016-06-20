@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link href="{{asset('/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/sidebar.css')}}" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
@@ -27,7 +28,7 @@
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-inverse navbar-static-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
