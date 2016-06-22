@@ -75,14 +75,6 @@
             </div>
         </nav>
 
-        <div id="wrapper" class="container">
-            @yield('sidebar')
-            <div id="page-content-wrapper">
-                @yield('content')
-            </div>
-        </div>
-            </div>
-
     <!-- JavaScripts -->
     <script src="{{asset('/vendor/jquery/js/jquery.min.js')}}"></script>
     <script src="{{asset('/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
