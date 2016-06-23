@@ -28,8 +28,7 @@
     </style>
 </head>
 <body id="app-layout">
-        <div id="row">
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="main-navbar">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <!-- Collapsed Hamburger -->
@@ -74,6 +73,9 @@
                 </div>
             </div>
         </nav>
+        <div id="login-page">
+            @yield('content')
+        </div>
 
     <!-- JavaScripts -->
     <script src="{{asset('/vendor/jquery/js/jquery.min.js')}}"></script>
