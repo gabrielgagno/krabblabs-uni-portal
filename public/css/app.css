@@ -1,5 +1,5 @@
 #main-navbar {
-    /*margin-bottom: 0;*/
+    margin-bottom: 0px;
 }
 
 #login-page {
@@ -7,7 +7,7 @@
 }
 
 #wrapper {
-    margin-top: 70px;
+    margin-top: 50px;
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;

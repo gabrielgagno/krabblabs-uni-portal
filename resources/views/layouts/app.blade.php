@@ -28,7 +28,7 @@
     </style>
 </head>
 <body id="app-layout">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="main-navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <!-- Collapsed Hamburger -->
@@ -73,9 +73,18 @@
                 </div>
             </div>
         </nav>
-        <div id="login-page">
-            @yield('content')
-        </div>
+        @if(Auth::guest())
+            <div id="login-page">
+                @yield('content')
+            </div>
+        @else
+            <div id="wrapper">
+                @yield('sidebar')
+                <div id="page-content-wrapper">
+                    @yield('content')
+                </div>
+            </div>
+        @endif
 
     <!-- JavaScripts -->
     <script src="{{asset('/vendor/jquery/js/jquery.min.js')}}"></script>
