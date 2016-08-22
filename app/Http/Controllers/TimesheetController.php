@@ -14,4 +14,9 @@ class TimesheetController extends Controller
     {
         return view('timesheet.index');
     }
+
+    public function logTime(Request $request)
+    {
+
+    }
 }
