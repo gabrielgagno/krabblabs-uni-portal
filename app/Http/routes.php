@@ -35,5 +35,12 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::group(['middleware' => 'auth'], function() {
         Route::get('/dashboard', 'HomeController@dashboard');
+
+        // timesheet group
+        Route::group(['prefix' => 'timesheet'], function() {
+            Route::get('/', 'TimesheetController@index');
+
+            Route::post('/logTime/:id', 'TimesheetController@logTime');
+        });
     });
 });
