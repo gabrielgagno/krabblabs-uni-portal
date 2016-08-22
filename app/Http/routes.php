@@ -39,8 +39,14 @@ Route::group(['middleware' => 'web'], function () {
         // timesheet group
         Route::group(['prefix' => 'timesheet'], function() {
             Route::get('/', 'TimesheetController@index');
+        });
+    });
 
-            Route::post('/logTime/:id', 'TimesheetController@logTime');
+    // api group
+    Route::group(['prefix' => 'api'], function() {
+        // timesheet group
+        Route::group(['prefix' => 'timesheet'], function() {
+            Route::post('/logTime/{id}', 'TimesheetController@logTime');
         });
     });
 });

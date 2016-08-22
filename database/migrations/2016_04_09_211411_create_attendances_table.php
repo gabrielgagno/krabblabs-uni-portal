@@ -22,6 +22,7 @@ class CreateAttendancesTable extends Migration
             $table->boolean('isHoliday')->default(false);
             $table->integer('leaveStatus');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
