@@ -16,15 +16,4 @@ class TimesheetController extends Controller
     {
         return view('timesheet.index');
     }
-
-    public function logTime(Request $request, $id)
-    {
-        $user = User::find($id);
-        if($user->attendances->where('date', '=', date('Y-m-d'))->first()) {
-            // update
-            return "huu";
-        }
-        // create new or check if there's
-        return 'haha';
-    }
 }

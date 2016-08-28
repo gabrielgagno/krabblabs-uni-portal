@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use App\Helpers\FormatHelper;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Symfony\Component\DomCrawler\Form;
+use DateTime;
 
 class User extends Authenticatable
 {
@@ -92,5 +95,29 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo('App\Models\Role');
+    }
+
+    public function timeLogIn($timestamp)
+    {
+        // get date part
+        $date = FormatHelper::splitDateTime($timestamp, FormatHelper::SPLIT_DATE);
+
+        // check if exists (timeIn)
+        // if so, ignore
+        //else, create
+        $result = $this->attendances()->where('date', '=', new DateTime($date))->first();
+        if($result) {
+            return "data-already-exists";
+        }
+        $this->attendances()->create(array(
+            'date' => new DateTime($date),
+            'timeIn' => $timestamp
+        ));
+        return "success";
+    }
+
+    public function timeLogOut($timestamp)
+    {
+
     }
 }
