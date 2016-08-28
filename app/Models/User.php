@@ -88,4 +88,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\LeaveBalance');
     }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role');
+    }
 }
