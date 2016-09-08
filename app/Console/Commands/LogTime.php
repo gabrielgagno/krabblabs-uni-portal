@@ -47,16 +47,7 @@ class LogTime extends Command
             echo "user-not-found";
             return 1;
         }
-        switch($opt) {
-            case 'login':
-                $user->timeLogIn(date('Y-m-d H:i:s'));
-                break;
-            case 'logout':
-                $user->timeLogOut(date('Y-m-d H:i:s'));
-                break;
-            default: return 2;
-            break;
-        }
+        $result = $user->logTime(date('Y-m-d H:i:s'));
         return 0;
     }
 }

@@ -8,6 +8,8 @@
 
 namespace App\Helpers;
 
+use DateTime;
+
 class FormatHelper
 {
 
@@ -26,13 +28,16 @@ class FormatHelper
 
         switch ($constant) {
             case self::SPLIT_TIME:
-                return $result[1];
+                return new DateTime($result[1]);
                 break;
             case self::SPLIT_DATE:
-                return $result[0];
+                return new DateTime($result[0]);
                 break;
             default:
-                return $result;
+                return array(
+                    'date'  =>  new DateTime($result[0]),
+                    'time'  =>  new DateTime($result[1])
+                );
                 break;
         }
     }
