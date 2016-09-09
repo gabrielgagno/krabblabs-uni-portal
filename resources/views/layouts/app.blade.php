@@ -58,9 +58,15 @@
                                 <!--li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li-->
                         @else
+                            <li><a href="{{url('/')}}">Dashboard</a></li>
+                            <li><a href="{{url('/timesheet')}}">Timesheet</a></li>
+                            <li><a href="#">Finance</a></li>
+                            <li><a href="#">Logistics</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Executive</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->firstName }} <span class="caret"></span>
+                                    {{ Auth::user()->lastName.", ".Auth::user()->firstName}} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -73,18 +79,9 @@
                 </div>
             </div>
         </nav>
-        @if(Auth::guest())
-            <div id="login-page">
-                @yield('content')
-            </div>
-        @else
-            <div id="wrapper">
-                @yield('sidebar')
-                <div id="page-content-wrapper">
-                    @yield('content')
-                </div>
-            </div>
-        @endif
+        <div class="top-spacing">
+            @yield('content')
+        </div>
 
     <!-- JavaScripts -->
     <script src="{{asset('/vendor/jquery/js/jquery.min.js')}}"></script>

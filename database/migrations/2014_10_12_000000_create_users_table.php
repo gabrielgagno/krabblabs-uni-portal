@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->integer('department_id');
             $table->integer('position_id');
             $table->integer('paygrade_id');
+            $table->integer('role_id');
             $table->decimal('salary',10,2);
             $table->date('dateStarted');
             $table->date('dateLeft')->nullable();
