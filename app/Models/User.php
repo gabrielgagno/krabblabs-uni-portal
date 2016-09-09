@@ -137,7 +137,7 @@ class User extends Authenticatable
                 DB::rollback();
                 return array(
                     'result'    =>  'error',
-                    'message'   =>  'a database error has occurred'
+                    'message'   =>  $e->getTraceAsString()
                 );
             }
 
@@ -158,7 +158,7 @@ class User extends Authenticatable
             DB::rollback();
             return array(
                 'result'    =>  'error',
-                'message'   =>  'a database error has occurred'
+                'message'   =>  $e->getTraceAsString()
             );
         }
         return array(

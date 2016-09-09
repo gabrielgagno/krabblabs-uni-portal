@@ -12,7 +12,7 @@ class LogTime extends Command
      *
      * @var string
      */
-    protected $signature = 'uni:logtime {user} {opt}';
+    protected $signature = 'uni:logtime {user}';
 
     /**
      * The console command description.
@@ -39,7 +39,6 @@ class LogTime extends Command
     public function handle()
     {
         $userId = $this->argument('user');
-        $opt = $this->argument('opt');
 
         $user = User::find($userId);
 
@@ -48,6 +47,18 @@ class LogTime extends Command
             return 1;
         }
         $result = $user->logTime(date('Y-m-d H:i:s'));
+        if($result['result']=='error') {
+            return 90;
+        }
+
+        switch($result['action']) {
+            case 'login':
+                return 2;
+                break;
+            case 'logout':
+                return 3;
+                break;
+        }
         return 0;
     }
 }
