@@ -17,6 +17,7 @@ class CreatePermissionsTable extends Migration
             $table->string('permission_key');
             $table->string('permission_name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
