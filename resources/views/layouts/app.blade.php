@@ -14,6 +14,7 @@
     <!-- Styles -->
     <link href="{{asset('/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/navbar.css')}}" rel="stylesheet">
     <link href="{{asset('/css/sidebar.css')}}" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
@@ -59,7 +60,14 @@
                         <li><a href="{{ url('/register') }}">Register</a></li-->
                         @else
                             <li><a href="{{url('/')}}">Dashboard</a></li>
-                            <li><a href="{{url('/timesheet')}}">Timesheet</a></li>
+                            <li class="dropdown">
+                                <a href="{{url('/timesheet')}}" role="button" aria-expanded="false">Timesheet <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{url('/timesheet')}}">Attendance</a></li>
+                                    <li><a href="{{url('/timesheet/requests')}}">Requests</a></li>
+                                    <li><a href="{{url('/timesheet/calendar')}}">Leave Calendar</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#">Finance</a></li>
                             <li><a href="#">Logistics</a></li>
                             <li><a href="#">Projects</a></li>
