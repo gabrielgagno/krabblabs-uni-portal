@@ -42,7 +42,7 @@ class FormatHelper
         }
     }
 
-    public static function employeeNumberFormatter()
+    public static function employeeNumberFormatter($date)
     {
 
     }
