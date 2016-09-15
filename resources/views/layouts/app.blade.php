@@ -60,6 +60,18 @@
                         @else
                             <li><a href="{{url('/')}}">Dashboard</a></li>
                             <li><a href="{{url('/timesheet')}}">Timesheet</a></li>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Human Resources
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Employees</a></li>
+                                    <li><a href="#">Benefits</a></li>
+                                    <li><a href="#">Memos</a></li>
+                                    <li><a href="#">Company Calendar</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#">Finance</a></li>
                             <li><a href="#">Logistics</a></li>
                             <li><a href="#">Projects</a></li>
