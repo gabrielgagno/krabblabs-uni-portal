@@ -41,4 +41,9 @@ class FormatHelper
                 break;
         }
     }
+
+    public static function employeeNumberFormatter()
+    {
+
+    }
 }
