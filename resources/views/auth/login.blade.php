@@ -1,20 +1,12 @@
 @extends('layouts.app')
+
 @section('content')
-<div class="container-fluid">
+<div class="container">
+    <div class="row">
         <div class="col-md-8 col-md-offset-2">
-        <!--div class="col-md-10 col-md-offset-1"-->
             <div class="panel panel-default">
-                <div class="panel-heading">KrabbLabs UNI Portal Login</div>
+                <div class="panel-heading">Login</div>
                 <div class="panel-body">
-                    <p>
-                        WARNING: RESTRICTED ACCESS
-                        <br />
-                        <br />
-                        This portal contains sensitive information, confidential or otherwise private. Access to this
-                        portal is limited only to employees and affiliates of KrabbLabs. To gain access, contact us at
-                        <a href="mailto:krabblabs@gmail.com">krabblabs@gmail.com</a>.
-                    </p>
-                    <hr />
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {!! csrf_field() !!}
 
@@ -69,14 +61,6 @@
                 </div>
             </div>
         </div>
-        <!--div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
-
-                <div class="panel-body">
-                    Your Application's Landing Page.
-                </div>
-            </div>
-        </div-->
+    </div>
 </div>
 @endsection
