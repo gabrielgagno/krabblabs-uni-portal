@@ -32,6 +32,7 @@
                                         </span>
                                     </div>
                                 </div>
+                                <button id="today" class="btn btn-disabled" disabled>Today</button>
                             </div>
                         </div>
                         <table id="myAttendanceTable" class="table">
@@ -141,6 +142,8 @@
                     'format': 'YYYY/MM/DD'
                 });
             }).on('dp.change', function () {
+                $('#today').prop('disabled', false).attr('class', 'btn btn-success');
+
                 attendanceTable.draw();
             });
             $(function () {
@@ -148,8 +151,17 @@
                     'format': 'YYYY/MM/DD'
                 });
             }).on('dp.change', function () {
+                $('#today').prop('disabled', false).attr('class', 'btn btn-success');
                 attendanceTable.draw();
             });
-        })
+
+            // today button
+            $('#today').click(function () {
+                $('#myMin').val('');
+                $('#myMax').val('');
+                $('#today').prop('disabled', true).attr('class', 'btn btn-disabled');
+            })
+        });
+
     </script>
 @endsection
