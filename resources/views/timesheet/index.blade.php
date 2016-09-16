@@ -13,8 +13,6 @@
                     <div class="panel-body">
                         <table id="myAttendanceTable" class="table">
                             <thead>
-                                <th>Last Name</th>
-                                <th>First Name</th>
                                 <th>Date</th>
                                 <th>Time In</th>
                                 <th>Time Out</th>
@@ -88,8 +86,6 @@
             $('#myAttendanceTable').DataTable({
                 "ajax" : "{{ url('/api/v1/timesheet/'.Auth::user()->id).'?data=true' }}",
                 "columns" : [
-                    { data: 'lastName' },
-                    { data: 'firstName' },
                     { data: 'date' },
                     { data: 'timeIn'},
                     { data: 'timeOut' },
