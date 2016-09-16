@@ -16,6 +16,7 @@
     <link href="{{asset('/css/app.css')}}" rel="stylesheet">
     <link href="{{asset('/css/navbar.css')}}" rel="stylesheet">
     <link href="{{asset('/css/sidebar.css')}}" rel="stylesheet">
+    @yield('linkrels')
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>

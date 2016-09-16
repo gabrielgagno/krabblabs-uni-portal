@@ -38,14 +38,20 @@ Route::group(['middleware' => 'web'], function () {
 
         // timesheet group
         Route::group(['prefix' => 'timesheet'], function() {
-            Route::get('/', 'TimesheetController@index');
+            Route::get('/', 'TimesheetController@attendanceView');
         });
     });
+});
 
-    // api group
-    Route::group(['prefix' => 'api'], function() {
+// api group
+Route::group(['prefix' => 'api'], function() {
+    Route::group(['prefix' => 'v1'], function () {
         // timesheet group
         Route::group(['prefix' => 'timesheet'], function() {
+            Route::group(['prefix' => 'timesheet'], function () {
+                Route::get('/{id}', 'TimesheetController@getAttendance');
+                Route::get('/{projectId}', 'TimesheetController@getTeamAttendance');
+            });
             Route::post('/logTime/{id}', 'TimesheetController@logTime');
         });
     });
