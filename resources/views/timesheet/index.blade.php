@@ -104,7 +104,6 @@
                         if(min=='' || max=='') {
                             return true;
                         }
-                        console.log('putangina ito ba');
                         var date = moment(data[0], 'YYYY/MM/DD');
                         console.log(data[0]);
                         return date.isBetween(moment(min, 'YYYY/MM/DD'), moment(max, 'YYYY/MM/DD'), null, '[]');
