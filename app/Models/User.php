@@ -129,9 +129,19 @@ class User extends Authenticatable
         if($result) {
             DB::beginTransaction();
             try{
-                $result->update(array(
-                    'timeOut'   =>  $timestamp
-                ));
+                $timeIn = new DateTime($result->timeIn);
+                $timeOut = new DateTime($timestamp);
+                $diff = $timeOut->diff($timeIn);
+                $actualHours = $diff->h + ($diff->i/60) + ($diff->s/3600);
+                $result->timeIn = $timeIn;
+                $result->timeOut = $timeOut;
+                $result->actualHours = $actualHours;
+                $result->save();
+                /*$result->update(array(
+                    'timeIn'        =>  $timeIn,
+                    'timeOut'       =>  $timeOut,
+                    'actualHours'   =>  $actualHours
+                ));*/
                 DB::commit();
             } catch (\Exception $e) {
                 DB::rollback();

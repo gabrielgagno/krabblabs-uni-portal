@@ -18,7 +18,7 @@ class CreateAttendancesTable extends Migration
             $table->date('date');
             $table->timestamp('timeIn');
             $table->timestamp('timeOut');
-            $table->decimal('actualHours', 2, 2);
+            $table->float('actualHours');
             $table->boolean('isHoliday')->default(false);
             $table->integer('leaveStatus');
             $table->timestamps();
