@@ -94,9 +94,8 @@
 
     <!-- JavaScripts -->
     <script src="{{asset('/vendor/jquery/js/jquery.min.js')}}"></script>
-    <script src="{{asset('/vendor/datatables/datatables.min.js')}}"></script>
+    <script src="{{asset('/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
     @yield('scripts')
-    <!--script src="{{asset('/vendor/bootstrap/js/bootstrap.min.js')}}"></script-->
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>

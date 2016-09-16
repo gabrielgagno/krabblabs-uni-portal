@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @include('layouts.sidebar')
 @section('linkrels')
-    <link rel="stylesheet" type="text/css" href="{{asset('/vendor/datatables/datatables.min.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('/vendor/datatables/dataTables.bootstrap.min.css')}}"/>
 @endsection
 @section('content')
     <div class="container">
@@ -90,6 +90,8 @@
     </div>
 @endsection
 @section('scripts')
+    <script src="{{asset('/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('/vendor/datatables/dataTables.bootstrap.min.js')}}"></script>
     <script>
         $(document).ready(function () {
             $('#myAttendanceTable').DataTable({
