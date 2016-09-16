@@ -21,7 +21,7 @@ class TimesheetController extends Controller
 
     public function getAttendance($id, Request $request)
     {
-        $result = User::userAttendance()->find($id);
+        $result = User::find($id)->attendances;
         if(!$result) {
             return response()->json(
                 array(
@@ -33,7 +33,7 @@ class TimesheetController extends Controller
         if($request->get('data')) {
             return response()->json(
                 array(
-                    'data' => array($result)
+                    'data' => $result
                 )
             );
         }
