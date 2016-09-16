@@ -24,4 +24,16 @@ class Attendance extends Model
     public function user() {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function scopeWithUser($query)
+    {
+        return $query->leftJoin('users as usr', 'usr.id', '=', 'attendances.user_id')
+            ->select(
+                'usr.lastName',
+                'usr.firstName',
+                'attendances.date',
+                'attendances.actualHours',
+                'attendances.timeIn',
+                'attendances.timeOut');
+    }
 }
