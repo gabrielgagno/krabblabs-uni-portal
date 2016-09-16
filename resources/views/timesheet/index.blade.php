@@ -8,21 +8,23 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">My Attendance</div>
+                    <div class="panel-heading">
+                        My Attendance
+                    </div>
 
                     <div class="panel-body table-responsive">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>Date From:</td>
-                                    <td><input type="text" id="min" name="min" class=""></td>
-                                </tr>
-                                <tr>
-                                    <td>Date To:</td>
-                                    <td><input type="text" id="max" name="min"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="row">
+                            <div class="pull-right">
+                                <div class="form-group">
+                                    <div class="col-md-4"><label for="myMin">Date From: </label></div>
+                                    <div class="col-md-8"><input type="text" id="myMin" name="min" class="form-control" /></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-4"><label for="myMax">Date To: </label></div>
+                                    <div class="col-md-8"><input type="text" id="myMax" name="min" class="form-control"></div>
+                                </div>
+                            </div>
+                        </div>
                         <table id="myAttendanceTable" class="table">
                             <thead>
                                 <th>Date</th>
@@ -92,9 +94,24 @@
 @section('scripts')
     <script src="{{asset('/vendor/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('/vendor/datatables/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{asset('/vendor/moment/moment.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-            $('#myAttendanceTable').DataTable({
+            $.fn.dataTable.ext.search.push(
+                    function( settings, data, dataIndex ) {
+                        var min = $('#myMin').val();
+                        var max = $('#myMax').val();
+                        if(min=='' || max=='') {
+                            return true;
+                        }
+                        console.log('putangina ito ba');
+                        var date = moment(data[0], 'YYYY/MM/DD');
+                        console.log(data[0]);
+                        return date.isBetween(moment(min, 'YYYY/MM/DD'), moment(max, 'YYYY/MM/DD'), null, '[]');
+                    }
+            );
+
+            var attendanceTable = $('#myAttendanceTable').DataTable({
                 "ordering": false,
                 "ajax" : "{{ url('/api/v1/timesheet/'.Auth::user()->id).'?data=true' }}",
                 "columns" : [
@@ -107,6 +124,10 @@
                     { data: 'actualHours' }
                 ]
             });
+
+            $('#myMin, #myMax').keyup( function() {
+                attendanceTable.draw();
+            } );
         })
     </script>
 @endsection
