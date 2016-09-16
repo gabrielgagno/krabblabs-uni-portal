@@ -10,7 +10,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        My Attendance
+                        My Attendance ({{Auth::user()->employeeNumber.': '.Auth::user()->lastName.', '.Auth::user()->firstName.' '.Auth::user()->middleName}})
                     </div>
 
                     <div class="panel-body table-responsive">
