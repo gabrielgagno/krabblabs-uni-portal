@@ -2,6 +2,7 @@
 @include('layouts.sidebar')
 @section('linkrels')
     <link rel="stylesheet" type="text/css" href="{{asset('/vendor/datatables/dataTables.bootstrap.min.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('/vendor/datepicker/bootstrap-datetimepicker.min.css')}}" />
 @endsection
 @section('content')
     <div class="container">
@@ -13,15 +14,23 @@
                     </div>
 
                     <div class="panel-body table-responsive">
-                        <div class="row">
-                            <div class="pull-right">
-                                <div class="form-group">
-                                    <div class="col-md-4"><label for="myMin">Date From: </label></div>
-                                    <div class="col-md-8"><input type="text" id="myMin" name="min" class="form-control" /></div>
+                        <div class="row pull-right">
+                            <div class="form-group">
+                                <div class="col-md-5">
+                                    <div class="input-group date" id="myDateFrom">
+                                        <input type='text' id="myMin" class="form-control" placeholder="Date From"/>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-md-4"><label for="myMax">Date To: </label></div>
-                                    <div class="col-md-8"><input type="text" id="myMax" name="min" class="form-control"></div>
+                                <div class="col-md-5">
+                                    <div class="input-group date" id="myDateTo">
+                                        <input type='text' id="myMax" class="form-control" placeholder="Date To" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -95,8 +104,11 @@
     <script src="{{asset('/vendor/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('/vendor/datatables/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('/vendor/moment/moment.min.js')}}"></script>
+    <script src="{{asset('/vendor/datepicker/bootstrap-datetimepicker.min.js')}}"></script>
+
     <script>
         $(document).ready(function () {
+            // datatables date range
             $.fn.dataTable.ext.search.push(
                     function( settings, data, dataIndex ) {
                         var min = $('#myMin').val();
@@ -105,11 +117,10 @@
                             return true;
                         }
                         var date = moment(data[0], 'YYYY/MM/DD');
-                        console.log(data[0]);
                         return date.isBetween(moment(min, 'YYYY/MM/DD'), moment(max, 'YYYY/MM/DD'), null, '[]');
                     }
             );
-
+            // init for my attendance table
             var attendanceTable = $('#myAttendanceTable').DataTable({
                 "ordering": false,
                 "ajax" : "{{ url('/api/v1/timesheet/'.Auth::user()->id).'?data=true' }}",
@@ -124,9 +135,21 @@
                 ]
             });
 
-            $('#myMin, #myMax').keyup( function() {
+            // init for date picker
+            $(function () {
+                $('#myDateFrom').datetimepicker({
+                    'format': 'YYYY/MM/DD'
+                });
+            }).on('dp.change', function () {
                 attendanceTable.draw();
-            } );
+            });
+            $(function () {
+                $('#myDateTo').datetimepicker({
+                    'format': 'YYYY/MM/DD'
+                });
+            }).on('dp.change', function () {
+                attendanceTable.draw();
+            });
         })
     </script>
 @endsection
