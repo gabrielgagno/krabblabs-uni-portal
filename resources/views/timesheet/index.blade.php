@@ -10,7 +10,19 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">My Attendance</div>
 
-                    <div class="panel-body">
+                    <div class="panel-body table-responsive">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Date From:</td>
+                                    <td><input type="text" id="min" name="min" class=""></td>
+                                </tr>
+                                <tr>
+                                    <td>Date To:</td>
+                                    <td><input type="text" id="max" name="min"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <table id="myAttendanceTable" class="table">
                             <thead>
                                 <th>Date</th>
@@ -33,7 +45,7 @@
                     <div class="panel-heading">Team Attendance</div>
 
                     <div class="panel-body">
-                        <table id="attendanceTable" class="table">
+                        <table id="projectAttendanceTable" class="table">
                             <thead>
                             <th>Employee No.</th>
                             <th>Last Name</th>
@@ -58,7 +70,7 @@
                     <div class="panel-heading">Search for an Employee's Attendance</div>
 
                     <div class="panel-body">
-                        <table id="attendanceTable" class="table">
+                        <table id="allAttendanceTable" class="table">
                             <thead>
                             <th>Employee No.</th>
                             <th>Last Name</th>
@@ -66,8 +78,6 @@
                             <th>Date</th>
                             <th>Time In</th>
                             <th>Time Out</th>
-                            <th>Expected Hours</th>
-                            <th>Actual Hours</th>
                             </thead>
                             <tbody>
                             </tbody>
@@ -80,10 +90,10 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{asset('/vendor/datatables/datatables.min.js')}}"></script>
     <script>
         $(document).ready(function () {
             $('#myAttendanceTable').DataTable({
+                "ordering": false,
                 "ajax" : "{{ url('/api/v1/timesheet/'.Auth::user()->id).'?data=true' }}",
                 "columns" : [
                     { data: 'date' },
