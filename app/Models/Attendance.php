@@ -15,6 +15,7 @@ class Attendance extends Model
         'date',
         'timeIn',
         'timeOut',
+        'actualHours',
         'isHoliday',
         'leaveStatus'
     ];
