@@ -11,7 +11,7 @@
                     <div class="panel-heading">My Attendance</div>
 
                     <div class="panel-body">
-                        <table id="attendanceTable" class="table">
+                        <table id="myAttendanceTable" class="table">
                             <thead>
                                 <th>Last Name</th>
                                 <th>First Name</th>
@@ -83,4 +83,22 @@
 @endsection
 @section('scripts')
     <script src="{{asset('/vendor/datatables/datatables.min.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myAttendanceTable').DataTable({
+                "ajax" : "{{ url('/api/v1/timesheet/'.Auth::user()->id).'?data=true' }}",
+                "columns" : [
+                    { data: 'lastName' },
+                    { data: 'firstName' },
+                    { data: 'date' },
+                    { data: 'timeIn'},
+                    { data: 'timeOut' },
+                    { render: function() {
+                        return 9;
+                    } },
+                    { data: 'actualHours' }
+                ]
+            });
+        })
+    </script>
 @endsection

@@ -167,4 +167,16 @@ class User extends Authenticatable
             'action'    =>  'logout'
         );
     }
+
+    public function scopeUserAttendance($query)
+    {
+        return $query->leftJoin('attendances as atn', 'atn.user_id', '=', 'users.id')
+            ->select(
+                'users.lastName',
+                'users.firstName',
+                'atn.date',
+                'atn.actualHours',
+                'atn.timeIn',
+                'atn.timeOut');
+    }
 }
