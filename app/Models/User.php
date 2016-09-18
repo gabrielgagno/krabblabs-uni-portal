@@ -136,7 +136,8 @@ class User extends Authenticatable
                 $result->update(array(
                     'timeIn'        =>  $timeIn,
                     'timeOut'       =>  $timeOut,
-                    'actualHours'   =>  $actualHours
+                    'actualHours'   =>  $actualHours,
+                    'timesList'     =>  FormatHelper::addTimeToTimeList($timestamp, $result->timesList)
                 ));
                 DB::commit();
             } catch (\Exception $e) {
@@ -157,7 +158,8 @@ class User extends Authenticatable
         try{
             $this->attendances()->create(array(
                 'date' => $date,
-                'timeIn' => $timestamp
+                'timeIn' => $timestamp,
+                'timesList'     =>  FormatHelper::addTimeToTimeList($timestamp)
             ));
             DB::commit();
         } catch (\Exception $e) {

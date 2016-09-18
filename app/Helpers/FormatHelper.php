@@ -42,9 +42,13 @@ class FormatHelper
         }
     }
 
-    public static function addTimeToTimeList($timestamp, $timeList)
+    public static function addTimeToTimeList($timestamp, $timeList = null)
     {
-        $result = array_push(json_decode($timeList), $timestamp);
-        return json_encode($result);
+        if($timeList==null) {
+            return json_encode(array($timestamp));
+        }
+        $decodedJson = json_decode($timeList);
+        array_push($decodedJson, $timestamp);
+        return json_encode($decodedJson);
     }
 }
