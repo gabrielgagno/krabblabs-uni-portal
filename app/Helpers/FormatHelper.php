@@ -41,4 +41,10 @@ class FormatHelper
                 break;
         }
     }
+
+    public static function addTimeToTimeList($timestamp, $timeList)
+    {
+        $result = array_push(json_decode($timeList), $timestamp);
+        return json_encode($result);
+    }
 }
