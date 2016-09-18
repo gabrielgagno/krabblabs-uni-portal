@@ -23,7 +23,7 @@ class CreateAttendancesTable extends Migration
             $table->float('actualHours');
             $table->boolean('isHoliday')->default(false);
             $table->integer('leaveStatus');
-            $table->text('timeInList');
+            $table->text('timesList');
             $table->timestamps();
             $table->softDeletes();
         });
