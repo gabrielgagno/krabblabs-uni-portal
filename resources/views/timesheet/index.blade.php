@@ -122,7 +122,8 @@
                     }
             );
             // init for my attendance table
-            var attendanceTable = $('#myAttendanceTable').DataTable({
+            var myAttendanceTable = $('#myAttendanceTable').DataTable({
+                "searching": false,
                 "ordering": false,
                 "ajax" : "{{ url('/api/v1/timesheet/'.Auth::user()->id).'?data=true' }}",
                 "columns" : [
@@ -144,7 +145,7 @@
             }).on('dp.change', function () {
                 $('#today').prop('disabled', false).attr('class', 'btn btn-success');
 
-                attendanceTable.draw();
+                myAttendanceTable.draw();
             });
             $(function () {
                 $('#myDateTo').datetimepicker({
@@ -152,7 +153,7 @@
                 });
             }).on('dp.change', function () {
                 $('#today').prop('disabled', false).attr('class', 'btn btn-success');
-                attendanceTable.draw();
+                myAttendanceTable.draw();
             });
 
             // today button
