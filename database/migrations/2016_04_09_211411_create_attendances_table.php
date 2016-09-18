@@ -16,10 +16,10 @@ class CreateAttendancesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->date('date');
-            $table->timestamp('timeIn');
-            $table->timestamp('timeOut');
-            $table->timestamp('oldTimeIn');
-            $table->timestamp('oldTimeOut');
+            $table->timestamp('timeIn')->nullable();
+            $table->timestamp('timeOut')->nullable();
+            $table->timestamp('oldTimeIn')->nullable();
+            $table->timestamp('oldTimeOut')->nullable();
             $table->float('actualHours');
             $table->boolean('isHoliday')->default(false);
             $table->integer('leaveStatus');

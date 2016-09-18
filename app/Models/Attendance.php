@@ -15,9 +15,12 @@ class Attendance extends Model
         'date',
         'timeIn',
         'timeOut',
+        'oldTimeIn',
+        'oldTimeOut',
         'actualHours',
         'isHoliday',
-        'leaveStatus'
+        'leaveStatus',
+        'timesList'
     ];
 
     protected $dates = ['deleted_at'];
