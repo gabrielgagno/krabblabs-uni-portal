@@ -123,7 +123,7 @@
             );
             // init for my attendance table
             var myAttendanceTable = $('#myAttendanceTable').DataTable({
-                "searching": false,
+                "dom": '<l><t><ip>',
                 "ordering": false,
                 "ajax" : "{{ url('/api/v1/timesheet/'.Auth::user()->id).'?data=true' }}",
                 "columns" : [
@@ -137,6 +137,8 @@
                 ]
             });
 
+            myAttendanceTable.column(0).search(moment().format('YYYY-MM-DD'));
+
             // init for date picker
             $(function () {
                 $('#myDateFrom').datetimepicker({
@@ -145,7 +147,7 @@
             }).on('dp.change', function () {
                 $('#today').prop('disabled', false).attr('class', 'btn btn-success');
 
-                myAttendanceTable.draw();
+                myAttendanceTable.columns().search("").draw();
             });
             $(function () {
                 $('#myDateTo').datetimepicker({
@@ -153,13 +155,14 @@
                 });
             }).on('dp.change', function () {
                 $('#today').prop('disabled', false).attr('class', 'btn btn-success');
-                myAttendanceTable.draw();
+                myAttendanceTable.columns().search("").draw();
             });
 
             // today button
             $('#today').click(function () {
                 $('#myMin').val('');
                 $('#myMax').val('');
+                myAttendanceTable.column(0).search(moment().format('YYYY-MM-DD')).draw();
                 $('#today').prop('disabled', true).attr('class', 'btn btn-disabled');
             })
         });
