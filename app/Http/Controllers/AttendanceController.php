@@ -12,25 +12,6 @@ class AttendanceController extends Controller
 {
 
     // non-standard resource methods
-    public function getAttendance($id, Request $request)
-    {
-        $result = User::find($id)->attendances;
-        if(!$result) {
-            return response()->json(
-                array(
-                    'success'   =>  false,
-                    'error'     =>  'resource not found'
-                ), 404
-            );
-        }
-
-        return response()->json(
-            array(
-                'success'   =>  true,
-                'result'    =>  $result
-            )
-        );
-    }
 
     public function getTeamAttendance($projectId)
     {
@@ -45,7 +26,14 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-        return response()->json(array('data' => Attendance::all()));
+        $result = Attendance::withUser()->get();
+
+        return response()->json(
+            array(
+                'success'   =>  true,
+                'result'    =>  $result
+            )
+        );
     }
 
     /**
@@ -77,7 +65,22 @@ class AttendanceController extends Controller
      */
     public function show($id)
     {
-        //
+        $result = User::find($id)->attendances;
+        if(!$result) {
+            return response()->json(
+                array(
+                    'success'   =>  false,
+                    'error'     =>  'resource not found'
+                ), 404
+            );
+        }
+
+        return response()->json(
+            array(
+                'success'   =>  true,
+                'result'    =>  $result
+            )
+        );
     }
 
     /**

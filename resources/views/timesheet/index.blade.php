@@ -167,7 +167,26 @@
                 $('#myMax').val('');
                 myAttendanceTable.column(0).search(moment().format('YYYY-MM-DD')).draw();
                 $('#today').prop('disabled', true).attr('class', 'btn btn-disabled');
-            })
+            });
+
+
+
+            // ALL ATTENDANCE TABLE
+            var allAttendance = $('#allAttendanceTable').DataTable({
+                "ordering": false,
+                "ajax": {
+                    url: "{{url('/api/v1/attendances/')}}",
+                    dataSrc: 'result'
+                },
+                columns: [
+                    { data: "employeeNumber" },
+                    { data: "lastName" },
+                    { data: "firstName" },
+                    { data: "date" },
+                    { data: "timeIn" },
+                    { data: "timeOut" }
+                ]
+            });
         });
 
     </script>

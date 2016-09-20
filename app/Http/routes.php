@@ -52,7 +52,8 @@ Route::group(['prefix' => 'api'], function() {
         });
 
         Route::group(['prefix' => 'attendances'], function() {
-            Route::get('/{id}', 'AttendanceController@getAttendance');
+            Route::get('/', 'AttendanceController@index');
+            Route::get('/{id}', 'AttendanceController@show');
             Route::get('/projects/{projectId}', 'AttendanceController@getTeamAttendance');
         });
     });

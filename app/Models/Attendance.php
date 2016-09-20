@@ -33,10 +33,10 @@ class Attendance extends Model
     {
         return $query->leftJoin('users as usr', 'usr.id', '=', 'attendances.user_id')
             ->select(
+                'usr.employeeNumber',
                 'usr.lastName',
                 'usr.firstName',
                 'attendances.date',
-                'attendances.actualHours',
                 'attendances.timeIn',
                 'attendances.timeOut');
     }
