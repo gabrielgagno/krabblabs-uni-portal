@@ -48,10 +48,12 @@ Route::group(['prefix' => 'api'], function() {
     Route::group(['prefix' => 'v1'], function () {
         // timesheet group
         Route::group(['prefix' => 'timesheet'], function() {
-            Route::get('/{id}', 'TimesheetController@getAttendance');
-            Route::get('/projects/{projectId}', 'TimesheetController@getTeamAttendance');
-
             Route::post('/logTime/{id}', 'TimesheetController@logTime');
+        });
+
+        Route::group(['prefix' => 'attendances'], function() {
+            Route::get('/{id}', 'AttendanceController@getAttendance');
+            Route::get('/projects/{projectId}', 'AttendanceController@getTeamAttendance');
         });
     });
 });

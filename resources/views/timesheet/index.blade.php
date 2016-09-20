@@ -125,7 +125,10 @@
             var myAttendanceTable = $('#myAttendanceTable').DataTable({
                 "dom": '<l><t><ip>',
                 "ordering": false,
-                "ajax" : "{{ url('/api/v1/timesheet/'.Auth::user()->id).'?data=true' }}",
+                "ajax": {
+                    url: "{{url('/api/v1/attendances/'.Auth::user()->id)}}",
+                    dataSrc: 'result'
+                },
                 "columns" : [
                     { data: 'date' },
                     { data: 'timeIn'},
