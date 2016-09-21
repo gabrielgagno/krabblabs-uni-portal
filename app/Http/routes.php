@@ -39,6 +39,7 @@ Route::group(['middleware' => 'web'], function () {
         // timesheet group
         Route::group(['prefix' => 'timesheet'], function() {
             Route::get('/', 'TimesheetController@attendanceView');
+            Route::get('/requests', 'TimesheetController@requestsView');
         });
     });
 });

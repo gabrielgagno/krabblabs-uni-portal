@@ -17,6 +17,11 @@ class TimesheetController extends Controller
         return view('timesheet.index');
     }
 
+    public function requestsView()
+    {
+        return view('timesheet.requests');
+    }
+
     // non-standard non-resource methods
 
     // resource methods
