@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link href="{{asset('/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/vendor/bootflat/css/bootflat.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/app.css')}}" rel="stylesheet">
     <link href="{{asset('/css/sidebar.css')}}" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
@@ -98,6 +99,9 @@
     <!-- JavaScripts -->
     <script src="{{asset('/vendor/jquery/js/jquery.min.js')}}"></script>
     <script src="{{asset('/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('/vendor/bootflat/js/bootflat.min.js')}}"></script>
+    <script src="{{asset('/vendor/bootflat/js/jquery.fs.selecter.min.js')}}"></script>
+    <script src="{{asset('/vendor/bootflat/js/jquery.fs.stepper.min.js')}}"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>
