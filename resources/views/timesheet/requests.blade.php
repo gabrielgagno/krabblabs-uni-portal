@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @include('partials.leaveForm')
+@section('linkrels')
+    <link rel="stylesheet" type="text/css" href="{{asset('/vendor/datepicker/bootstrap-datetimepicker.min.css')}}" />
+@endsection
 
 @section('content')
     <div class="container">
@@ -48,4 +51,19 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{asset('/vendor/moment/moment.min.js')}}"></script>
+    <script src="{{asset('/vendor/datepicker/bootstrap-datetimepicker.min.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dateFrom').datetimepicker({
+                'format': 'YYYY/MM/DD'
+            });
+            $('#dateTo').datetimepicker({
+                'format': 'YYYY/MM/DD'
+            });
+        })
+    </script>
 @endsection

@@ -17,6 +17,24 @@
                         </select>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <div class="input-group date" id="dateFrom">
+                            <input type='text' name="dateFrom" id="from" class="form-control" placeholder="Date From"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group date" id="dateTo">
+                            <input type='text' name="dateTo" id="to" class="form-control" placeholder="Date To" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-6">
 
