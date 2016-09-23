@@ -42,6 +42,7 @@ class FormatHelper
         }
     }
 
+
     public static function addTimeToTimeList($timestamp, $timeList = null)
     {
         if($timeList==null) {
@@ -50,5 +51,9 @@ class FormatHelper
         $decodedJson = json_decode($timeList);
         array_push($decodedJson, $timestamp);
         return json_encode($decodedJson);
+    }
+    public static function employeeNumberFormatter($date)
+    {
+
     }
 }
