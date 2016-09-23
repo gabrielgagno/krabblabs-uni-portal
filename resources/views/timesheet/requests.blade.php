@@ -1,11 +1,21 @@
 @extends('layouts.app')
-@include('layouts.sidebar')
+@include('partials.leaveForm')
 
 @section('content')
     <div class="container">
-        <h1 class="h1 page-header">Requests</h1>
         <div class="row">
-            <div class="col-md-12">
+            <h1 class="h1 page-header">Requests</h1>
+        </div>
+        <div class="row">
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <h4>Leave Balance</h4>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <h4>Excess Time</h4>
+                </div>
+            </div>
+            <div class="row col-md-12">
                 <ul class="nav nav-tabs nav-justified">
                     <li class="active"><a href="#leave" data-toggle="tab">Leave</a></li>
                     <li><a href="#timecorrection" data-toggle="tab">Time Correction</a></li>
@@ -13,12 +23,7 @@
                 </ul>
                 <div class="tab-content" id="tabs">
                     <div class="tab-pane fade active in" id="leave">
-                        <form method="post" action="{{url('/requests/leaves/')}}">
-                            {{csrf_field()}}
-                            <div class="form-group">
-                                
-                            </div>
-                        </form>
+                        @yield('leaveForm')
                     </div>
                     <div class="tab-pane" id="timecorrection">
 
