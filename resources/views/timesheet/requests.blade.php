@@ -2,6 +2,12 @@
 @include('partials.leaveForm')
 @section('linkrels')
     <link rel="stylesheet" type="text/css" href="{{asset('/vendor/datepicker/bootstrap-datetimepicker.min.css')}}" />
+    <link rel='stylesheet' href="{{asset('/vendor/fullcalendar/fullcalendar.min.css')}}" />
+    <style>
+        textarea {
+            resize: none;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -55,15 +61,6 @@
 
 @section('scripts')
     <script src="{{asset('/vendor/moment/moment.min.js')}}"></script>
-    <script src="{{asset('/vendor/datepicker/bootstrap-datetimepicker.min.js')}}"></script>
-    <script>
-        $(document).ready(function () {
-            $('#dateFrom').datetimepicker({
-                'format': 'YYYY/MM/DD'
-            });
-            $('#dateTo').datetimepicker({
-                'format': 'YYYY/MM/DD'
-            });
-        })
-    </script>
+    <script src="{{asset('/vendor/fullcalendar/fullcalendar.min.js')}}"></script>
+    <script src="{{asset('/js/leavesPicker.js')}}"></script>
 @endsection
