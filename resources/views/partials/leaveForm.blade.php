@@ -43,12 +43,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group">
-                <div class="col-lg-3">
-                    <label for="leaveRange">Select Dates</label>
+            <div class="col-md-6">
+                <div class="col-md-6">
+                    <h4 class="h4">Selected Dates</h4>
                 </div>
-                <div class="col-md-12">
-                    <div id="leaveCalendar"></div>
+                <div class="col-md-6">
+                    <button type="button" id="leaveSelectDates" class="btn btn-success" data-toggle="modal" data-target="#applyLeaveCalendarModal">Select Dates</button>
+                    <button type="button" id="leaveResetDates" class="btn btn-info">Reset</button>
                 </div>
             </div>
         </div>

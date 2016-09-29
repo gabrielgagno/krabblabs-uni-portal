@@ -3,5 +3,7 @@
  */
 
 $(document).ready(function () {
-    $('#leaveCalendar').fullCalendar({})
+    $('#applyLeaveCalendarModal').on('shown.bs.modal', function () {
+        $('#applyLeaveCalendar').fullCalendar({})
+    });
 });

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @include('partials.leaveForm')
+@include('partials.leaveCalendarModal')
 @section('linkrels')
     <link rel="stylesheet" type="text/css" href="{{asset('/vendor/datepicker/bootstrap-datetimepicker.min.css')}}" />
     <link rel='stylesheet' href="{{asset('/vendor/fullcalendar/fullcalendar.min.css')}}" />
@@ -57,6 +58,7 @@
             </div>
         </div>
     </div>
+    @yield('leaveCalendarModal')
 @endsection
 
 @section('scripts')
