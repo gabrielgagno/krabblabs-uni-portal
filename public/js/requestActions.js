@@ -10,4 +10,15 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('#dateCorrection').datetimepicker({
+        'format': 'YYYY/MM/DD'
+    });
+
+    $('#dateCorrectionNewIn').datetimepicker({
+
+    });
+    $('#dateCorrectionNewOut').datetimepicker({
+
+    });
 });

@@ -37,7 +37,7 @@
                         <label for="leaveReason">Reason: </label>
                     </div>
                     <div class="col-md-9">
-                        <textarea id="leaveReason" class="form-control"></textarea>
+                        <textarea id="leaveReason" name="leaveReason" class="form-control"></textarea>
                     </div>
                 </div>
             </div>
