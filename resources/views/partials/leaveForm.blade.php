@@ -1,5 +1,5 @@
 @section('leaveForm')
-    <form method="post" action="{{url('/attendances/leaves')}}">
+    <form method="post" action="{{url('/timesheet/requests/leaves')}}">
         <div class="row">
             <div class="col-md-6">
                 <br />

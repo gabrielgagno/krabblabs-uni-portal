@@ -40,6 +40,11 @@ Route::group(['middleware' => 'web'], function () {
         Route::group(['prefix' => 'timesheet'], function() {
             Route::get('/', 'TimesheetController@attendanceView');
             Route::get('/requests', 'TimesheetController@requestsView');
+
+            Route::post('/requests/leaves', 'TimesheetController@fileLeaveRequest');
+            Route::post('/requests/corrections', 'TimesheetController@fileTimeCorrection');
+            Route::post('/requests/overtimes', 'TimesheetController@fileOvertime');
+
         });
     });
 });
@@ -54,7 +59,7 @@ Route::group(['prefix' => 'api'], function() {
 
         Route::group(['prefix' => 'attendances'], function() {
             Route::get('/', 'AttendanceController@index');
-            Route::get('/{id}', 'AttendanceController@show');
+            Route::get('/{id}/{date?}', 'AttendanceController@show');
             Route::get('/projects/{projectId}', 'AttendanceController@getTeamAttendance');
         });
     });

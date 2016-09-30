@@ -61,11 +61,12 @@ class AttendanceController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
+     * @param  string $date
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $date = null)
     {
-        $result = User::find($id)->attendances;
+        $result = User::find($id);
         if(!$result) {
             return response()->json(
                 array(
@@ -75,6 +76,12 @@ class AttendanceController extends Controller
             );
         }
 
+        if($date) {
+            $result = $result->attendances()->where('date', $date)->get();
+        }
+        else {
+            $result = $result->attendances;
+        }
         return response()->json(
             array(
                 'success'   =>  true,

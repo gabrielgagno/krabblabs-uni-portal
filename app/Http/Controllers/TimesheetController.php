@@ -11,7 +11,7 @@ use App\Http\Requests;
 
 class TimesheetController extends Controller
 {
-    // non-standard non-resource views
+    # non-standard non-resource views
     public function attendanceView()
     {
         return view('timesheet.index');
@@ -22,7 +22,20 @@ class TimesheetController extends Controller
         return view('timesheet.requests');
     }
 
-    // non-standard non-resource methods
+    # non-standard non-resource methods
 
-    // resource methods
+    public function fileLeaveRequest(Request $request)
+    {
+
+    }
+
+    public function fileTimeCorrection(Request $request)
+    {
+
+    }
+
+    public function fileOvertime(Request $request)
+    {
+
+    }
 }
